@@ -1,7 +1,7 @@
-'use strict'
+'use strict';
 
 /** @type {import('@adonisjs/framework/src/Env')} */
-const Env = use('Env')
+const Env = use('Env');
 
 module.exports = {
   /*
@@ -18,6 +18,45 @@ module.exports = {
   */
   authenticator: 'session',
 
+  session: {
+    serializer: 'LucidMongo',
+    model: 'App/Models/User',
+    scheme: 'session',
+    uid: 'email',
+    password: 'password'
+  },
+
+  basic: {
+    serializer: 'LucidMongo',
+    model: 'App/Models/User',
+    scheme: 'basic',
+    uid: 'email',
+    password: 'password'
+  },
+
+  jwt: {
+    serializer: 'LucidMongo',
+    model: 'App/Models/User',
+    token: 'App/Models/Token',
+    scheme: 'jwt',
+    uid: 'email',
+    password: 'password',
+    expiry: '20m',
+    options: {
+      secret: 'self::app.appKey'
+    }
+  },
+
+  api: {
+    serializer: 'LucidMongo',
+    scheme: 'api',
+    model: 'App/Models/User',
+    token: 'App/Models/Token',
+    uid: 'username',
+    password: '',
+    expiry: '30d'
+  }
+
   /*
   |--------------------------------------------------------------------------
   | Session
@@ -27,6 +66,7 @@ module.exports = {
   | Session authentication is always persistent.
   |
   */
+  /*
   session: {
     serializer: 'lucid',
     model: 'App/Models/User',
@@ -34,6 +74,7 @@ module.exports = {
     uid: 'email',
     password: 'password'
   },
+  */
 
   /*
   |--------------------------------------------------------------------------
@@ -48,6 +89,8 @@ module.exports = {
   | login credentials on each request.
   |
   */
+
+  /*
   basic: {
     serializer: 'lucid',
     model: 'App/Models/User',
@@ -55,6 +98,7 @@ module.exports = {
     uid: 'email',
     password: 'password'
   },
+  */
 
   /*
   |--------------------------------------------------------------------------
@@ -65,6 +109,7 @@ module.exports = {
   | via HTTP `Authorization` header.
   |
   */
+  /*
   jwt: {
     serializer: 'lucid',
     model: 'App/Models/User',
@@ -75,6 +120,7 @@ module.exports = {
       secret: Env.get('APP_KEY')
     }
   },
+  */
 
   /*
   |--------------------------------------------------------------------------
@@ -84,6 +130,7 @@ module.exports = {
   | The Api scheme makes use of API personal tokens to authenticate a user.
   |
   */
+  /*
   api: {
     serializer: 'lucid',
     model: 'App/Models/User',
@@ -91,4 +138,5 @@ module.exports = {
     uid: 'email',
     password: 'password'
   }
-}
+  */
+};
