@@ -6,6 +6,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "start": "ts-node src/main",
+    "start:dev": "nodemon",
     "prestart:prod": "npm run build",
     "start:prod": "node dist/main.js"
   },
@@ -22,6 +23,7 @@
   "devDependencies": {
     "@types/mongoose": "5.5.17",
     "@types/node": "10.14.18",
+    "nodemon": "^1.19.2",
     "ts-node": "8.3.0",
     "tslint": "5.20.0"
   }
