@@ -1,15 +1,15 @@
 import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
-import { CatsModule } from './cats/cats.module';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 import { ItemsController } from './items/items.controller';
 import { ItemsService } from './items/items.service';
+import { ItemsModule } from './items/items.module';
+import { MongooseModule } from '@nestjs/mongoose';
+import config from './config/keys';
 
 @Module({
-  imports: [
-    MongooseModule.forRoot('mongodb://localhost:27017/test'),
-    CatsModule,
-  ],
-  controllers: [ItemsController],
-  providers: [ItemsService],
+  imports: [ItemsModule, MongooseModule.forRoot(config.MongoURI)],
+  controllers: [AppController, ItemsController],
+  providers: [AppService, ItemsService]
 })
-export class ApplicationModule {}
+export class AppModule {}
