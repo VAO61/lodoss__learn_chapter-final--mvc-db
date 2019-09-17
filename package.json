@@ -3,9 +3,9 @@
   "version": "4.1.0",
   "adonis-version": "4.1.0",
   "description": "The fullstack application boilerplate for Adonisjs",
-  "main": "index.js",
   "scripts": {
     "start": "node server.js",
+    "watch": "nodemon",
     "test": "node ace test"
   },
   "keywords": [
@@ -29,7 +29,9 @@
     "lucid-mongo": "^3.1.6",
     "mongodb-core": "^3.2.7"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^1.19.2"
+  },
   "autoload": {
     "App": "./app"
   }

@@ -19,6 +19,12 @@ class TaskController {
 
     return response.status(201).json(task);
   }
+
+  async show({ params, response }) {
+    const task = await Task.find(params.id);
+
+    return response.json(task);
+  }
 }
 
 module.exports = TaskController;
