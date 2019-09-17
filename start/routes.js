@@ -36,5 +36,7 @@ Route.group(() => {
   Route.get('/:id', 'EmailController.get');
   Route.post('/', 'EmailController.post');
   Route.put('/:id', 'EmailController.update');
+  // Route.post('/', 'EmailController.post').middleware(['emailValidator']);
+  // Route.put('/:id', 'EmailController.update').middleware(['emailValidator']);
   Route.delete('/:id', 'EmailController.delete');
 }).prefix('email');
