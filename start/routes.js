@@ -31,10 +31,10 @@ Route.group(() => {
   Route.delete('/:id', 'UserController.delete');
 }).prefix('user');
 
-// Route.group(() => {
-//   Route.get('all', 'EmailController.index');
-//   Route.get('/:id', 'EmailController.show');
-//   Route.post('/', 'EmailController.store');
-//   Route.put('/:id', 'EmailController.update');
-//   Route.delete('/:id', 'EmailController.delete');
-// }).prefix('email');
+Route.group(() => {
+  Route.get('all', 'EmailController.getAll');
+  Route.get('/:id', 'EmailController.get');
+  Route.post('/', 'EmailController.post');
+  Route.put('/:id', 'EmailController.update');
+  Route.delete('/:id', 'EmailController.delete');
+}).prefix('email');
