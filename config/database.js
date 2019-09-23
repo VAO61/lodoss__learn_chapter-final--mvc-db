@@ -74,6 +74,10 @@ module.exports = {
         source: Env.get('DB_AUTH_SOURCE', ''),
         mechanism: Env.get('DB_AUTH_MECHANISM', '')
       }
+      // options: {
+      //   useUnifiedTopology: true,
+      //   useNewUrlParser: true
+      // }
     }
   },
 

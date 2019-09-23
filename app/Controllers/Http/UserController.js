@@ -5,6 +5,8 @@ const User = use('App/Models/User');
 class UserController {
   async getAll({ response }) {
     let users = await User.all();
+    // let users = await User.query().with('lists').fetch(),
+
     return response.json(users);
   }
 

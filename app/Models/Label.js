@@ -4,9 +4,9 @@
 const Model = use('Model');
 
 class Label extends Model {
-  lists() {
-    return this.belongsTo('App/Models/List');
-  }
+  // lists() {
+  //   return this.belongsTo('App/Models/List');
+  // }
 }
 
 module.exports = Label;

@@ -41,7 +41,15 @@ Route.group(() => {
   Route.delete('/:id', 'EmailController.delete');
 }).prefix('email');
 
-const Database = use('Database');
+Route.group(() => {
+  Route.get('all', 'ListController.getAll');
+  Route.get('/:id', 'ListController.get');
+  Route.post('/', 'ListController.post');
+  Route.put('/:id', 'ListController.update');
+  Route.delete('/:id', 'ListController.delete');
+}).prefix('list');
+
+// const Database = use('Database');
 
 // Route.get('/', async () => {
 //   return await Database.table('user').select('*');
