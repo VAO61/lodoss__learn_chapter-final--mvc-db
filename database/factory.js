@@ -12,18 +12,19 @@
 */
 
 /** @type {import('@adonisjs/lucid/src/Factory')} */
-// const Factory = use('Factory');
 
-// class UserSeeder {
-//   async run() {
-//     const user = await Factory.model('App/Models/User').create();
-//     const list = await Factory.model('App/Models/Project').make();
-//     // const email = await Factory.model('App/Models/Email').make();
+const Factory = use('Factory');
 
-//     await user.lists().save(list);
-//     await lists.users().save(user);
-//   }
-// }
+Factory.blueprint('App/Models/User', faker => {
+  return {
+    name: faker.name()
+    // description: faker.sentence()
+  };
+});
 
-// module.exports = UserSeeder;
-
+Factory.blueprint('App/Models/List', faker => {
+  return {
+    name: faker.word()
+    // description: faker.sentence()
+  };
+});
