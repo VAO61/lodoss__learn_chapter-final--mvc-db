@@ -40,3 +40,9 @@ Route.group(() => {
   // Route.put('/:id', 'EmailController.update').middleware(['emailValidator']);
   Route.delete('/:id', 'EmailController.delete');
 }).prefix('email');
+
+const Database = use('Database');
+
+// Route.get('/', async () => {
+//   return await Database.table('user').select('*');
+// });
