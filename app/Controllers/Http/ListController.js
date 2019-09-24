@@ -25,11 +25,11 @@ class ListController {
   }
 
   async post({ request, response }) {
-    // const listName = request.only(['name']);
-    // const listName = request.only(['name']);
+    // console.log(request);
 
     // const { name, user_id, email_id, label_id } = request.post();
     const { name, user_id } = request.post();
+    // console.log(name);
     const list = await List.create({ name, user_id });
 
     return response.status(201).json({
