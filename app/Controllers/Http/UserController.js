@@ -15,7 +15,7 @@ class UserController {
   }
 
   async get({ params, response }) {
-    const user = await User.find(params.id);
+    const user = await User.with('emails').find(params.id);
 
     return response.json(user);
   }
