@@ -6,7 +6,8 @@ class UserController {
   async getAll({ response }) {
     // let users = await User.all();
     let users = await User.query()
-      .with('lists')
+      // .with('lists')
+      .with('emails')
       .fetch();
 
     return response.json(users);
@@ -19,10 +20,11 @@ class UserController {
   }
 
   async post({ request, response }) {
-    const userName = request.only(['name']);
+    const obj = request.only(['name', 'emails']);
 
     const user = new User();
-    user.name = userName.name;
+    user.name = obj.name;
+    user.emails = obj.emails ? JSON.parse(obj.emails) : [];
 
     await user.save();
 

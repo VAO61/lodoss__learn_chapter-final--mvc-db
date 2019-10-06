@@ -28,9 +28,9 @@ class ListController {
     // console.log(request);
 
     // const { name, user_id, email_id, label_id } = request.post();
-    const { name, user_id } = request.post();
+    const { name, user_id, email_id } = request.post();
     // console.log(name);
-    const list = await List.create({ name, user_id });
+    const list = await List.create({ name, user_id, email_id });
 
     return response.status(201).json({
       message: 'Successfully created a new list',

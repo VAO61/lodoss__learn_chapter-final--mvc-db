@@ -8,9 +8,9 @@ class List extends Model {
     return this.belongsToMany('App/Models/User');
   }
 
-  // emails() {
-  //   return this.belongsToMany('App/Models/Email');
-  // }
+  emails() {
+    return this.belongsToMany('App/Models/Email');
+  }
 
   // labels() {
   //   return this.hasMany('App/Models/Label');
