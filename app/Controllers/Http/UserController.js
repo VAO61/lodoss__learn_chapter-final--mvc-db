@@ -1,6 +1,7 @@
 'use strict';
 
 const User = use('App/Models/User');
+const Email = use('App/Models/Email');
 
 class UserController {
   async getAll({ response }) {
@@ -24,9 +25,17 @@ class UserController {
 
     const user = new User();
     user.name = obj.name;
-    user.emails = obj.emails ? JSON.parse(obj.emails) : [];
-
     await user.save();
+
+    const emails = obj.emails ? JSON.parse(obj.emails) : [];
+    if (emails.length) {
+      emails.forEach(async email => {
+        const emailModel = new Email();
+        emailModel.emailAdress = email;
+        await emailModel.save();
+        await user.emails().save(emailModel);
+      });
+    }
 
     return response.status(201).json(user);
   }
