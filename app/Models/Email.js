@@ -4,9 +4,9 @@
 const Model = use('Model');
 
 class Email extends Model {
-  // lists() {
-  //   return this.belongsToMany('App/Models/List');
-  // }
+  users() {
+    return this.belongsToMany('App/Models/User');
+  }
 }
 
 module.exports = Email;

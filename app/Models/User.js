@@ -4,8 +4,12 @@
 const Model = use('Model');
 
 class User extends Model {
-  lists() {
-    return this.belongsToMany('App/Models/List');
+  // lists() {
+  //   return this.hasMany('App/Models/List');
+  // }
+
+  emails() {
+    return this.belongsToMany('App/Models/Email');
   }
 }
 
