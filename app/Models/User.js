@@ -10,6 +10,7 @@ class User extends Model {
 
   emails() {
     return this.belongsToMany('App/Models/Email');
+    // return this.belongsToMany('App/Models/Email', 'lists');
   }
 }
 

@@ -19,9 +19,7 @@ class ListSchema extends Schema {
       // table
       //   .integer('label_id')
       //   .unsigned()
-      //   .foreign('list_label_id')
-      //   .references('emails.id')
-      //   .onDelete('cascade');
+      //   .references('labels.id');
     });
   }
 

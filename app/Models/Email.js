@@ -6,6 +6,7 @@ const Model = use('Model');
 class Email extends Model {
   users() {
     return this.belongsToMany('App/Models/User');
+    // return this.belongsToMany('App/Models/User', 'lists');
   }
 }
 
