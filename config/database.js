@@ -65,7 +65,7 @@ module.exports = {
   mongodb: {
     client: 'mongodb',
     connection: {
-      host: Env.get('DB_HOST', 'localhost'),
+      host: Env.get('DB_HOST', 'mongodb'),
       port: Env.get('DB_PORT', 27017),
       user: Env.get('DB_USER', 'admin'),
       password: Env.get('DB_PASSWORD', ''),
