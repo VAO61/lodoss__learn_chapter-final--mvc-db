@@ -19,9 +19,38 @@ const Route = use('Route');
 // Route.on('/').render('welcome')
 
 Route.group(() => {
-  Route.get('tasks', 'TaskController.index');
-  Route.get('task/:id', 'TaskController.show');
-  Route.post('task', 'TaskController.store');
-  Route.put('tasks', 'TaskController.update');
-  Route.delete('tasks', 'TaskController.delete');
-}).prefix('api');
+  // Route.get('tasks', 'TaskController.index');
+  // Route.get('task/:id', 'TaskController.show');
+  // Route.post('task', 'TaskController.store');
+  // Route.put('task/:id', 'TaskController.update');
+  // Route.delete('task/:id', 'TaskController.delete');
+  Route.get('all', 'UserController.getAll');
+  Route.get('/:id', 'UserController.get');
+  Route.post('/', 'UserController.post');
+  Route.put('/:id', 'UserController.update');
+  Route.delete('/:id', 'UserController.delete');
+}).prefix('user');
+
+Route.group(() => {
+  Route.get('all', 'EmailController.getAll');
+  Route.get('/:id', 'EmailController.get');
+  Route.post('/', 'EmailController.post');
+  Route.put('/:id', 'EmailController.update');
+  // Route.post('/', 'EmailController.post').middleware(['emailValidator']);
+  // Route.put('/:id', 'EmailController.update').middleware(['emailValidator']);
+  Route.delete('/:id', 'EmailController.delete');
+}).prefix('email');
+
+Route.group(() => {
+  Route.get('all', 'ListController.getAll');
+  Route.get('/:id', 'ListController.get');
+  Route.post('/', 'ListController.post');
+  Route.put('/:id', 'ListController.update');
+  Route.delete('/:id', 'ListController.delete');
+}).prefix('list');
+
+// const Database = use('Database');
+
+// Route.get('/', async () => {
+//   return await Database.table('user').select('*');
+// });
